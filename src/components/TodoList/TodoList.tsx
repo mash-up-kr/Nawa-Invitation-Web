@@ -1,6 +1,6 @@
 /* External dependencies */
 import React from 'react'
-import Immutable from 'immutable'
+import { OrderedMap } from 'immutable'
 import classNames from 'classnames/bind'
 
 /* Internal dependencies */
@@ -9,12 +9,13 @@ import TodoModel from 'models/Todo'
 import styles from './TodoList.module.scss'
 
 interface todoListProps {
-  todoList: Immutable.List<TodoModel>
+  todos: OrderedMap<number, TodoModel>
+  onToggleTodo: React.MouseEventHandler<HTMLInputElement>
 }
 
 const cx = classNames.bind(styles)
 
-function TodoList({ todoList }: todoListProps) {
+function TodoList({ todos, onToggleTodo }: todoListProps) {
   return (
     <div className={cx('todo-list')}>
       <div className={cx('top-bar')}>
@@ -22,8 +23,8 @@ function TodoList({ todoList }: todoListProps) {
         <button>추가</button>
       </div>
       <ul className={cx('todos')}>
-        {todoList.map(todo => (
-          <Todo key={todo.get('id')} todo={todo} />
+        {todos.toList().map(todo => (
+          <Todo key={todo.id} todo={todo} onToggleTodo={onToggleTodo} />
         ))}
       </ul>
     </div>
