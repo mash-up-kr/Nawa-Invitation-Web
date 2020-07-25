@@ -99,7 +99,7 @@
     "*.{ts,tsx,js,jsx}": [
       "npm run eslint"
     ],
-    "*.{md,json}": [
+    "*.json": [
       "prettier --write"
     ]
   },
