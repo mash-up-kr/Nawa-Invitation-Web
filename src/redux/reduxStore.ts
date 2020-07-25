@@ -17,10 +17,7 @@ class ReduxStore {
     const composeEnhancers = devtools || compose
 
     const sagaMiddleware = createSagaMiddleware()
-    this.store = createStore(
-      rootReducer,
-      composeEnhancers(applyMiddleware(actionLifeCycles, sagaMiddleware)),
-    )
+    this.store = createStore(rootReducer, composeEnhancers(applyMiddleware(actionLifeCycles, sagaMiddleware)))
     sagaMiddleware.run(rootSaga)
   }
 
