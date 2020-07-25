@@ -17,12 +17,7 @@ function Todo({ todo, onToggleTodo }: TodoProps) {
   return (
     <li className={cx('todo')}>
       <p>{todo.get('content')}</p>
-      <input
-        type="checkbox"
-        data-id={todo.id}
-        checked={todo.done}
-        onClick={onToggleTodo}
-      />
+      <input type="checkbox" data-id={todo.id} checked={todo.done} onClick={onToggleTodo} />
     </li>
   )
 }

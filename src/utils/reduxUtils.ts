@@ -3,9 +3,7 @@ import { call, put } from 'redux-saga/effects'
 import _ from 'lodash'
 import * as UUID from 'uuid'
 
-export type AsyncActionTypes<
-  T extends { [K in keyof T]: (...args: any[]) => any }
-> = ReturnType<T[keyof T]>
+export type AsyncActionTypes<T extends { [K in keyof T]: (...args: any[]) => any }> = ReturnType<T[keyof T]>
 
 export interface ActionType<T, S = {}> {
   uuid: string
@@ -22,10 +20,7 @@ export interface PromiseActionMeta {
   }
 }
 
-export type ActionGenerator<T, S = {}> = (
-  payload?: T,
-  meta?: S,
-) => ActionType<T extends undefined ? {} : T, S>
+export type ActionGenerator<T, S = {}> = (payload?: T, meta?: S) => ActionType<T extends undefined ? {} : T, S>
 
 export type PromiseActionGenerator<T, S = {}> = (
   payload?: T,
@@ -34,9 +29,7 @@ export type PromiseActionGenerator<T, S = {}> = (
 
 export type ResponseType<T> = (...args: any[]) => Promise<T>
 
-export function actionCreator<T, S = {}>(
-  requestType: string,
-): ActionGenerator<T, S> {
+export function actionCreator<T, S = {}>(requestType: string): ActionGenerator<T, S> {
   return (payload: any = {}, meta: any = {}) => {
     const uuid = _.get(meta, 'uuid', UUID.v4())
     _.unset(meta, 'uuid')
@@ -49,9 +42,7 @@ export function actionCreator<T, S = {}>(
   }
 }
 
-export function actionCreatorWithPromise<T, S = {}>(
-  requestType: string,
-): PromiseActionGenerator<T, S> {
+export function actionCreatorWithPromise<T, S = {}>(requestType: string): PromiseActionGenerator<T, S> {
   return (payload: any = {}, meta: any = {}) => {
     const uuid = _.get(meta, 'uuid', UUID.v4())
     _.unset(meta, 'uuid')
@@ -70,11 +61,9 @@ export function actionCreatorWithPromise<T, S = {}>(
   }
 }
 
-export const createAsyncActionsAndSaga = <L, S, E>(
-  fetching: L,
-  success: S,
-  error: E,
-) => <AT, SP, EP>(request: ResponseType<SP>) => {
+export const createAsyncActionsAndSaga = <L, S, E>(fetching: L, success: S, error: E) => <AT, SP, EP>(
+  request: ResponseType<SP>,
+) => {
   const asyncActions = {
     fetching: () => ({ type: fetching }),
     success: (payload: SP, uuid: string) => ({ type: success, payload, uuid }),
