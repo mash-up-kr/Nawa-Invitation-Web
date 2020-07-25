@@ -12,6 +12,7 @@ import App from 'App'
 import ReduxStore from 'redux/reduxStore'
 import * as serviceWorker from 'serviceWorker'
 import 'sanitize.css/sanitize.css'
+import 'index.scss'
 
 ReactDOM.render(
   <Provider store={ReduxStore.getStore()}>
