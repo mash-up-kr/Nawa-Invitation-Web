@@ -8,16 +8,16 @@ import styles from './Todo.module.scss'
 
 interface TodoProps {
   todo: TodoModel
+  onToggleTodo: React.MouseEventHandler<HTMLInputElement>
 }
 
 const cx = classNames.bind(styles)
 
-function Todo({ todo }: TodoProps) {
-  console.log(todo.toJS())
+function Todo({ todo, onToggleTodo }: TodoProps) {
   return (
     <li className={cx('todo')}>
       <p>{todo.get('content')}</p>
-      <input type="checkbox" checked={todo.get('done')} />
+      <input type="checkbox" data-id={todo.id} checked={todo.done} onClick={onToggleTodo} />
     </li>
   )
 }

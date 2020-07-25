@@ -10,10 +10,7 @@ import { GlobalStyle } from 'styles/global-styles'
 function App() {
   return (
     <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - Mash-up Invitation"
-        defaultTitle="Mash-up Invitation"
-      >
+      <Helmet titleTemplate="%s - Mash-up Invitation" defaultTitle="Mash-up Invitation">
         <meta name="description" content="The invitation app" />
       </Helmet>
       <Switch>
