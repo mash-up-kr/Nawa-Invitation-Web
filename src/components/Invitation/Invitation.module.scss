@@ -1,6 +1,15 @@
 .template-wrapper {
   min-height: 100vh;
   background-color: #F1F0EC;
+  animation: fadein 2.5s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   header {
     width: 100%;
@@ -39,6 +48,7 @@
         .description {
           margin-top: 16px;
           font-size: 16px;
+          word-break: keep-all;
         }
       }
       &.template-content {

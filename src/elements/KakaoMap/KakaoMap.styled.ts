@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const MapWrapper = styled.div`
   width: 100%;
+  overflow: hidden;
   border: 1px solid #dfdfdf;
   border-radius: 6px;
 `
