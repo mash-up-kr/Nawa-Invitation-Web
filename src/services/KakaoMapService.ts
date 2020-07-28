@@ -1,8 +1,13 @@
-//@ts-nocheck
 interface KakaoMapServiceProps {
   mapContainer: any
   latitude: number
   longitude: number
+}
+
+declare global {
+  interface Window {
+    kakao: any
+  }
 }
 
 class KakaoMapService implements KakaoMapServiceProps {
@@ -23,14 +28,14 @@ class KakaoMapService implements KakaoMapServiceProps {
     document.head.appendChild(script)
 
     script.onload = () => {
-      kakao.maps.load(() => {
+      window.kakao.maps.load(() => {
         const options = {
-          center: new kakao.maps.LatLng(this.latitude, this.longitude),
+          center: new window.kakao.maps.LatLng(this.latitude, this.longitude),
           level: 7,
         }
-        const map = new kakao.maps.Map(this.mapContainer, options)
-        const markerPosition = new kakao.maps.LatLng(this.latitude, this.longitude)
-        const marker = new kakao.maps.Marker({
+        const map = new window.kakao.maps.Map(this.mapContainer, options)
+        const markerPosition = new window.kakao.maps.LatLng(this.latitude, this.longitude)
+        const marker = new window.kakao.maps.Marker({
           position: markerPosition,
         })
         marker.setMap(map)

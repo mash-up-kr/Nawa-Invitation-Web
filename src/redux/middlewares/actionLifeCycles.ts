@@ -37,7 +37,7 @@ function actionLifeCycleMiddleware() {
       const { [action.type]: resolveOrReject } = lruCache.get(action.uuid)
       if (_.isFunction(resolveOrReject)) {
         lruCache.del(action.uuid)
-        resolveOrReject()
+        resolveOrReject(action.payload)
       }
     }
 

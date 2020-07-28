@@ -52,7 +52,7 @@ export function actionCreatorWithPromise<T, S = {}>(requestType: string): Promis
       payload,
       meta: {
         ...meta,
-        lifecycle: {
+        lifeCycle: {
           resolve: `${requestType}_SUCCESS`,
           reject: `${requestType}_ERROR`,
         },

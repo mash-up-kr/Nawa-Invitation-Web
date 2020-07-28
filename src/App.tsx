@@ -6,6 +6,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 /* Internal dependencies */
 import { HomePage } from 'pages'
 import { GlobalStyle } from 'styles/global-styles'
+import 'app.scss'
 
 function App() {
   return (

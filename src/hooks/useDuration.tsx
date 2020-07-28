@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function useDuration(duration) {
+function useDuration(duration: number) {
   const [show, setShow] = useState(true)
 
   useEffect(() => {
