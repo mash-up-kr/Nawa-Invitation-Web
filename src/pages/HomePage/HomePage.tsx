@@ -16,7 +16,6 @@ function HomePage() {
       <div className={cx('main-wrapper')}>
         <PopAnimation duration={1.5} />
         <InvitationContainer />
-        //<CommentListContainer />
       </div>
     </div>
   )
