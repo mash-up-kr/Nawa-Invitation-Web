@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
 })
 
 export function* rootSaga() {
-  yield all([todoSaga(), commentSaga(),invitationSaga()])
+  yield all([todoSaga(), commentSaga(), invitationSaga()])
 }
 
 export default rootReducer

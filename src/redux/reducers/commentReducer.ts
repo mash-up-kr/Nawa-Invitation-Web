@@ -6,11 +6,7 @@ import { OrderedMap } from 'immutable'
 import Comment from 'models/Comment'
 import { CommentAttr } from 'models/Comment'
 import * as commentAPI from 'api/commentAPI'
-import {
-  AsyncActionTypes,
-  actionCreatorWithPromise,
-  createAsyncActionsAndSaga,
-} from 'utils/reduxUtils'
+import { AsyncActionTypes, actionCreatorWithPromise, createAsyncActionsAndSaga } from 'utils/reduxUtils'
 
 type Action = AsyncActionTypes<typeof getCommentsAsyncActions>
 
@@ -28,10 +24,7 @@ const GET_COMMENTS_ERROR = 'comment/GET_COMMENTS_ERROR' as const
 
 export const getComments = actionCreatorWithPromise(GET_COMMENTS)
 
-const {
-  asyncActions: getCommentsAsyncActions,
-  asyncSaga: getCommentsSaga,
-} = createAsyncActionsAndSaga(
+const { asyncActions: getCommentsAsyncActions, asyncSaga: getCommentsSaga } = createAsyncActionsAndSaga(
   GET_COMMENTS_FETCHING,
   GET_COMMENTS_SUCCESS,
   GET_COMMENTS_ERROR,
