@@ -7,7 +7,11 @@ import Invitation from 'components/Invitation'
 import * as invitationAction from 'redux/reducers/invitationReducer'
 import * as invitationSelector from 'redux/selectors/invitationSelector'
 
-function InvitationContainer() {
+interface InvitationContainerProps {
+  templateId: string
+}
+
+function InvitationContainer({ templateId }: InvitationContainerProps) {
   const dispatch = useDispatch()
   const invitation = useSelector(invitationSelector.getInvitation)
 

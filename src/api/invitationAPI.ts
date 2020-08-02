@@ -2,7 +2,18 @@
 import axios from 'axios'
 
 /* Internal dependencies */
-import { InvitationAttr } from 'models/Invitation'
 import { ResponseType } from 'utils/reduxUtils'
 
-export const getInvitation: ResponseType<InvitationAttr> = () => axios.get('/api/invitation')
+export interface getInvitationResponseType {
+  invitationTitle: string
+  invitationContents: string
+  invitationTime: string
+  invitationAddressName: string
+  invitationRoadAddress: string
+  invitationPlaceName: string
+  invitationX: number
+  invitationY: number
+  images: string[]
+}
+
+export const getInvitation: ResponseType<getInvitationResponseType> = ({ templateId }) => axios.get(`/invitations/${templateId}`)

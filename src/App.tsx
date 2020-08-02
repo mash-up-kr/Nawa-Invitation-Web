@@ -15,7 +15,7 @@ function App() {
         <meta name="description" content="The invitation app" />
       </Helmet>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/:templateId" component={HomePage} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
