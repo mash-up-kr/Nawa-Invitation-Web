@@ -11,8 +11,8 @@ export interface getInvitationResponseType {
   invitationAddressName: string
   invitationRoadAddress: string
   invitationPlaceName: string
-  invitationX: number
-  invitationY: number
+  x: number
+  y: number
   images: string[]
 }
 

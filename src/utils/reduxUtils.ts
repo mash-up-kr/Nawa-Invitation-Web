@@ -72,8 +72,8 @@ export const createAsyncActionsAndSaga = <L, S, E>(fetching: L, success: S, erro
   const asyncSaga = function* (action: ActionType<AT>) {
     yield put(asyncActions.fetching())
     try {
-      const result = yield call(request, action.payload)
-      yield put(asyncActions.success(result, action.uuid))
+      const { data } = yield call(request, action.payload)
+      yield put(asyncActions.success(data, action.uuid))
     } catch (error) {
       yield put(asyncActions.error(error, action.uuid))
     }

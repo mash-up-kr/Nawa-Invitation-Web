@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 /* Internal dependencies */
@@ -15,15 +15,11 @@ function InvitationContainer({ templateId }: InvitationContainerProps) {
   const dispatch = useDispatch()
   const invitation = useSelector(invitationSelector.getInvitation)
 
-  return (
-    <Invitation
-      title="모각코하러 모이자!"
-      description="나의모임에 초대된 감자 친구들! 우리는 엄청난 서비스를 만들 수 있을꺼야!"
-      date="11월 27일"
-      time="오후 12시"
-      simpleLocation="잠실 1동"
-    />
-  )
+  useEffect(() => {
+    dispatch(invitationAction.getInvitation({ templateId }))
+  }, [templateId, dispatch])
+
+  return <Invitation invitation={invitation} />
 }
 
 export default InvitationContainer

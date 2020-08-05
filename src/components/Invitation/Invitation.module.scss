@@ -69,11 +69,12 @@
             }
           }
           .infos {
-            padding: 0 16px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
 
             .info {
+              width: 33.33%;
               display: flex;
               flex-direction: column;
               align-items: center;

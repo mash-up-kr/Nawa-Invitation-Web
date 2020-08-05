@@ -1,15 +1,14 @@
 /* External dependencies */
 import Immutable from 'immutable'
 
+/* Internal dependencies */
+import KakaoMap from 'models/KakaoMap'
+
 export interface InvitationAttr {
   title: string
   contents: string
   time: Date
-  addressName: string
-  roadAddress: string
-  placeName: string
-  latitude: number
-  longitude: number
+  kakaoMap: KakaoMap
   images: string[]
 }
 
@@ -17,11 +16,7 @@ const InvitationRecord = Immutable.Record<InvitationAttr>({
   title: '',
   contents: '',
   time: new Date(),
-  addressName: '',
-  roadAddress: '',
-  placeName: '',
-  latitude: 0,
-  longitude: 0,
+  kakaoMap: new KakaoMap(),
   images: [],
 })
 

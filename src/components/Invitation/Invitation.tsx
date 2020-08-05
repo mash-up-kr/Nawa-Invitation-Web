@@ -6,19 +6,20 @@ import classNames from 'classnames/bind'
 import Label from 'elements/Label'
 import KakaoMap from 'elements/KakaoMap'
 import SVGIcon from 'elements/SVGIcon'
+import InvitationModel from 'models/Invitation'
+import { getDate, getTime } from 'utils/dateUtils'
 import styled from './Invitation.module.scss'
 
 interface InvitationProps {
-  title: string
-  description: string
-  date: string
-  time: string
-  simpleLocation: string
+  invitation: InvitationModel
 }
 
 const cx = classNames.bind(styled)
 
-function Invitation({ title, description, date, time, simpleLocation }: InvitationProps) {
+function Invitation({ invitation }: InvitationProps) {
+  const simplePlaceName = invitation.kakaoMap.placeName.split(' ')[0]
+  const { kakaoMap } = invitation
+
   return (
     <div className={cx('template-wrapper')}>
       <header>
@@ -28,8 +29,8 @@ function Invitation({ title, description, date, time, simpleLocation }: Invitati
       </header>
       <section>
         <article className={cx('template-description')}>
-          <p className={cx('title')}>{title}</p>
-          <p className={cx('description')}>{description}</p>
+          <p className={cx('title')}>{invitation.title}</p>
+          <p className={cx('description')}>{invitation.contents}</p>
         </article>
         <article className={cx('template-content')}>
           <div className={cx('content-section')}>
@@ -43,21 +44,21 @@ function Invitation({ title, description, date, time, simpleLocation }: Invitati
                   <SVGIcon name="calendar" />
                   <p>날짜</p>
                 </div>
-                <div className={cx('info-content')}>{date}</div>
+                <div className={cx('info-content')}>{getDate(invitation.time)}</div>
               </div>
               <div className={cx('info', 'time-wrapper')}>
                 <div className={cx('info-title')}>
                   <SVGIcon name="time" />
                   <p>시간</p>
                 </div>
-                <div className={cx('info-content')}>{time}</div>
+                <div className={cx('info-content')}>{getTime(invitation.time)}</div>
               </div>
               <div className={cx('info', 'location-wrapper')}>
                 <div className={cx('info-title')}>
                   <SVGIcon name="location" />
                   <p>장소</p>
                 </div>
-                <div className={cx('info-content')}>{simpleLocation}</div>
+                <div className={cx('info-content')}>{simplePlaceName}</div>
               </div>
             </div>
           </div>
@@ -71,12 +72,7 @@ function Invitation({ title, description, date, time, simpleLocation }: Invitati
               <p>주소</p>
             </div>
             <div className={cx('info-content')}>
-              <KakaoMap
-                generalAddress="잠실1동 코워킹 스페이스"
-                detailAddress="서울특별시 송파구 잠실1동-5 마천로 328 오금현대아파트 43동"
-                latitude={33.450701}
-                longitude={126.570667}
-              />
+              <KakaoMap kakaoMap={kakaoMap} />
             </div>
           </div>
         </article>

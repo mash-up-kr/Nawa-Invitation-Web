@@ -21,4 +21,4 @@ function Comment({ comment }: CommentProps) {
   )
 }
 
-export default Comment
+export default React.memo(Comment)
