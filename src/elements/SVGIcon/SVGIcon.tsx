@@ -1,5 +1,6 @@
 /* External dependencies */
-import React from 'react'
+import React, { useMemo } from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import * as Styled from './SVGIcon.styled'
@@ -14,16 +15,22 @@ export enum Size {
 
 interface SVGIconProps {
   name: string
-  width?: number
-  height?: number
+  size?: Size
 }
 
-const path = '/images/'
+function SVGIcon({ name, size = Size.Normal }: SVGIconProps) {
+  const src = useMemo(() => {
+    const fileName = _.endsWith(name, '.svg') ? name : `${name}.svg`
+    try {
+      return require(`assets/icons/${fileName}`)
+    } catch (e) {
+      console.error(`cannot find icon name ${name}. Pleace check again. error message : ${e.message}`)
+    }
+  }, [name])
 
-function SVGIcon({ name, width = Size.Normal, height = Size.Normal }: SVGIconProps) {
   return (
-    <Styled.SVGIconWrapper width={width} height={height}>
-      <Styled.SVGIcon src={`${path}${name}.svg`} alt="이미지 없음" />
+    <Styled.SVGIconWrapper size={size}>
+      <Styled.SVGIcon src={src} />
     </Styled.SVGIconWrapper>
   )
 }

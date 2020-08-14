@@ -8,6 +8,7 @@ import KakaoMap from 'elements/KakaoMap'
 import SVGIcon from 'elements/SVGIcon'
 import InvitationModel from 'models/Invitation'
 import { getDate, getTime } from 'utils/dateUtils'
+import CharacterImg from 'assets/images/character.png'
 import styled from './Invitation.module.scss'
 
 interface InvitationProps {
@@ -24,7 +25,7 @@ function Invitation({ invitation }: InvitationProps) {
     <div className={cx('template-wrapper')}>
       <header>
         <div className={cx('character-wrapper')}>
-          <img src="/images/character.png" alt="nothing" />
+          <img src={CharacterImg} alt="" />
         </div>
       </header>
       <section>
