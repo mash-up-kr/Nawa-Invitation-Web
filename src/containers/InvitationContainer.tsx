@@ -1,6 +1,8 @@
 /* External dependencies */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import Invitation from 'components/Invitation'
@@ -13,11 +15,20 @@ interface InvitationContainerProps {
 
 function InvitationContainer({ templateId }: InvitationContainerProps) {
   const dispatch = useDispatch()
+  const history = useHistory()
   const invitation = useSelector(invitationSelector.getInvitation)
 
   useEffect(() => {
-    dispatch(invitationAction.getInvitation({ templateId }))
-  }, [templateId, dispatch])
+    // eslint-disable-next-line prettier/prettier
+    (async () => {
+      try {
+        await dispatch(invitationAction.getInvitation({ templateId })).promise
+      } catch (error) {
+        const errorStatusCode = _.get(error, ['response', 'status'])
+        history.replace(history.location.pathname, { errorStatusCode })
+      }
+    })()
+  }, [templateId, history, dispatch])
 
   return <Invitation invitation={invitation} />
 }

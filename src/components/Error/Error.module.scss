@@ -1,0 +1,43 @@
+.error-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    margin-top: 94px;
+    padding: 0 30px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .error-avatar {
+    margin-top: 16px;
+  }
+  .error-status {
+    margin-top: 6px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #60d170;
+  }
+  .error-description {
+    width: 160px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #a9a9a9;
+  }
+  .back-btn {
+    width: 100vw;
+    height: 64px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    line-height: 64px;
+    background-color: #fef051;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+  }
+}
