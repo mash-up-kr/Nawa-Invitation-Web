@@ -21,6 +21,7 @@
       padding-top: 30px;
       display: flex;
       justify-content: center;
+      box-sizing: border-box;
 
       img {
         height: 100%;
@@ -30,6 +31,7 @@
   section {
     width: 100%;
     padding: 9px 16px;
+    box-sizing: border-box;
     
     article {
       width: 100%;
@@ -40,6 +42,7 @@
       &.template-description {
         padding: 11px 24px 13px;
         text-align: center;
+        box-sizing: border-box;
 
         .title {
           font-size: 20px;
