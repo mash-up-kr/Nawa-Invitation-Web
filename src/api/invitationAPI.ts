@@ -15,8 +15,8 @@ export interface getInvitationResponseType {
   invitationTitle: string
   invitationContents: string
   invitationTime: string
-  placeName: string
-  map: ResponseMapType | null
+  invitationPlaceName: string
+  mapInfo: ResponseMapType | null
   images: string[]
 }
 

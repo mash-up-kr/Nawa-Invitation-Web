@@ -29,8 +29,9 @@ class Invitation extends InvitationRecord {
       ...args,
       title: args.invitationTitle,
       contents: args.invitationContents,
+      placeName: args.invitationPlaceName,
       time: new Date(args.invitationTime),
-      map: _.isNil(args.map) ? args.map : new Map(args.map),
+      map: _.isNil(args.mapInfo) ? args.mapInfo : new Map(args.mapInfo),
     })
   }
 }
