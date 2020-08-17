@@ -4,15 +4,19 @@ import axios from 'axios'
 /* Internal dependencies */
 import { ResponseType } from 'utils/reduxUtils'
 
+interface ResponseMapType {
+  invitationAddressName: string
+  invitationRoadAddressName: string
+  x: number
+  y: number
+}
+
 export interface getInvitationResponseType {
   invitationTitle: string
   invitationContents: string
   invitationTime: string
-  invitationAddressName: string
-  invitationRoadAddress: string
-  invitationPlaceName: string
-  x: number
-  y: number
+  placeName: string
+  map: ResponseMapType | null
   images: string[]
 }
 
