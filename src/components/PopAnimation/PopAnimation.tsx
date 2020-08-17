@@ -4,7 +4,7 @@ import Lottie from 'react-lottie'
 import classNames from 'classnames/bind'
 
 /* Internal dependencies */
-import animationData from 'assets/fireworks.json'
+import animationData from 'assets/invitation.json'
 import useDuration from 'hooks/useDuration'
 import styled from './PopAnimation.module.scss'
 

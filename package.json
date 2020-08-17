@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "axios": "0.19.2",
     "classnames": "2.2.6",
     "cross-env": "7.0.2",
@@ -107,6 +109,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run checkTs && lint-staged"
     }
   },
