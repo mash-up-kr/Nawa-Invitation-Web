@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga'
 
 /* Internal dependencies */
 import rootReducer, { rootSaga } from 'redux/reducers'
-import actionLifeCycles from 'redux/middlewares/actionLifeCycles'
 import { isDevelopment } from 'utils/environmentUtils'
 
 class ReduxStore {
@@ -17,7 +16,7 @@ class ReduxStore {
     const composeEnhancers = devtools || compose
 
     const sagaMiddleware = createSagaMiddleware()
-    this.store = createStore(rootReducer, composeEnhancers(applyMiddleware(actionLifeCycles, sagaMiddleware)))
+    this.store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
     sagaMiddleware.run(rootSaga)
   }
 

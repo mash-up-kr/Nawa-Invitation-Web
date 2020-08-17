@@ -19,8 +19,7 @@ function InvitationContainer({ templateId }: InvitationContainerProps) {
   const invitation = useSelector(invitationSelector.getInvitation)
 
   useEffect(() => {
-    // eslint-disable-next-line prettier/prettier
-    (async () => {
+    ;(async () => {
       try {
         await dispatch(invitationAction.getInvitation({ templateId })).promise
       } catch (error) {

@@ -5,7 +5,7 @@ import { takeLatest } from 'redux-saga/effects'
 import Invitation from 'models/Invitation'
 import KakaoMap from 'models/KakaoMap'
 import * as invitationAPI from 'api/invitationAPI'
-import { AsyncActionTypes, actionCreatorWithPromise, createAsyncActionsAndSaga } from 'utils/reduxUtils'
+import { AsyncActionTypes, actionCreator, createAsyncActionsAndSaga } from 'utils/reduxUtils'
 
 type Action = AsyncActionTypes<typeof getInvitationAsyncActions>
 
@@ -25,7 +25,7 @@ const GET_INVITATION_FETCHING = 'invitation/GET_INVITATION_FETCHING' as const
 const GET_INVITATION_SUCCESS = 'invitation/GET_INVITATION_SUCCESS' as const
 const GET_INVITATION_ERROR = 'invitation/GET_INVITATION_ERROR' as const
 
-export const getInvitation = actionCreatorWithPromise<getInvitationPayload>(GET_INVITATION)
+export const getInvitation = actionCreator<getInvitationPayload>(GET_INVITATION, { usePromise: true })
 
 const { asyncActions: getInvitationAsyncActions, asyncSaga: getInvitationSaga } = createAsyncActionsAndSaga(
   GET_INVITATION_FETCHING,
