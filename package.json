@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "axios": "0.19.2",
     "classnames": "2.2.6",
     "cross-env": "7.0.2",
@@ -11,6 +13,7 @@
     "immutable": "4.0.0-rc.12",
     "lodash": "4.17.19",
     "lru-cache": "6.0.0",
+    "moment": "2.27.0",
     "node-plop": "0.25.0",
     "node-sass": "4.14.1",
     "platform": "1.3.6",
@@ -19,6 +22,7 @@
     "react-app-polyfill": "1.0.6",
     "react-dom": "16.13.0",
     "react-helmet-async": "1.0.4",
+    "react-lottie": "1.2.3",
     "react-redux": "7.2.0",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.1",
@@ -125,5 +129,6 @@
         "statements": 90
       }
     }
-  }
+  },
+  "proxy": "http://ec2-15-164-188-237.ap-northeast-2.compute.amazonaws.com:8080"
 }

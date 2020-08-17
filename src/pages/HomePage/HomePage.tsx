@@ -3,17 +3,15 @@ import React from 'react'
 import classNames from 'classnames/bind'
 
 /* Internal dependencies */
-import TodoListContainer from 'containers/TodoListContainer'
-import styles from './HomePage.module.scss'
+import style from 'pages/HomePage/HomePage.module.scss'
+import Home from 'components/Home/Home'
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(style)
 
 function HomePage() {
   return (
     <div className={cx('homepage-wrapper')}>
-      <div className={cx('todo-list-wrapper')}>
-        <TodoListContainer />
-      </div>
+      <Home />
     </div>
   )
 }

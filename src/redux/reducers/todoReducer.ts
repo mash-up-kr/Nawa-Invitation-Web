@@ -6,7 +6,7 @@ import { OrderedMap } from 'immutable'
 import Todo from 'models/Todo'
 import { TodoAttr } from 'models/Todo'
 import * as todoAPI from 'api/todoAPI'
-import { AsyncActionTypes, actionCreatorWithPromise, createAsyncActionsAndSaga } from 'utils/reduxUtils'
+import { AsyncActionTypes, actionCreator, createAsyncActionsAndSaga } from 'utils/reduxUtils'
 
 type Action =
   | AsyncActionTypes<typeof getTodosAsyncActions>
@@ -47,9 +47,9 @@ const TOGGLE_TODO_FETCHING = 'todo/TOGGLE_TODO_FETCHING' as const
 const TOGGLE_TODO_SUCCESS = 'todo/TOGGLE_TODO_SUCCESS' as const
 const TOGGLE_TODO_ERROR = 'todo/TOGGLE_TODO_ERROR' as const
 
-export const getTodos = actionCreatorWithPromise(GET_TODOS)
-export const createTodo = actionCreatorWithPromise<CreateTodoPayload>(CREATE_TODO)
-export const toggleTodo = actionCreatorWithPromise<ToggleTodoPayload>(TOGGLE_TODO)
+export const getTodos = actionCreator(GET_TODOS, { usePromise: true })
+export const createTodo = actionCreator<CreateTodoPayload>(CREATE_TODO, { usePromise: true })
+export const toggleTodo = actionCreator<ToggleTodoPayload>(TOGGLE_TODO, { usePromise: true })
 
 const { asyncActions: getTodosAsyncActions, asyncSaga: getTodosSaga } = createAsyncActionsAndSaga(
   GET_TODOS_FETCHING,

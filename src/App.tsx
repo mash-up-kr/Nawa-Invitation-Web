@@ -4,18 +4,24 @@ import { Helmet } from 'react-helmet-async'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 /* Internal dependencies */
-import { HomePage } from 'pages'
+import { HomePage, ErrorPage, InvitationPage } from 'pages'
+import ErrorHandler from 'components/ErrorHandler'
 import { GlobalStyle } from 'styles/global-styles'
+import 'app.scss'
 
 function App() {
   return (
     <BrowserRouter>
-      <Helmet titleTemplate="%s - Mash-up Invitation" defaultTitle="Mash-up Invitation">
-        <meta name="description" content="The invitation app" />
+      <Helmet titleTemplate="%s - Nawa Invitation" defaultTitle="Nawa-Invitation">
+        <meta name="description" content="Nawa invitation" />
       </Helmet>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-      </Switch>
+      <ErrorHandler>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/:templateId" component={InvitationPage} />
+          <Route component={ErrorPage} />
+        </Switch>
+      </ErrorHandler>
       <GlobalStyle />
     </BrowserRouter>
   )
