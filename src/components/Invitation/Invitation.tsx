@@ -1,14 +1,12 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React from 'react'
 import classNames from 'classnames/bind'
-import _ from 'lodash'
 
 /* Internal dependencies */
 import TextUnderline from 'elements/TextUnderline'
-import Map from 'elements/Map'
+import KakaoMap from 'elements/KakaoMap'
 import SVGIcon from 'elements/SVGIcon'
 import InvitationModel from 'models/Invitation'
-import MapModel from 'models/Map'
 import { getDate, getTime } from 'utils/dateUtils'
 import CharacterImg from 'assets/images/character.png'
 import styled from './Invitation.module.scss'
@@ -20,22 +18,8 @@ interface InvitationProps {
 const cx = classNames.bind(styled)
 
 function Invitation({ invitation }: InvitationProps) {
-  const { map } = invitation
-
-  const mapSection = useMemo(
-    () => (
-      <div className={cx('content-section')}>
-        <div className={cx('content-info-title')}>
-          <SVGIcon name="map" />
-          <p>주소</p>
-        </div>
-        <div className={cx('info-content')}>
-          <Map map={map as MapModel} placeName={invitation.placeName} />
-        </div>
-      </div>
-    ),
-    [invitation.placeName, map],
-  )
+  const simplePlaceName = invitation.kakaoMap.placeName.split(' ')[0]
+  const { kakaoMap } = invitation
 
   return (
     <div className={cx('template-wrapper')}>
@@ -81,11 +65,19 @@ function Invitation({ invitation }: InvitationProps) {
                   </div>
                   <p>모임 장소</p>
                 </div>
-                <div className={cx('info-content')}>{invitation.placeName}</div>
+                <div className={cx('info-content')}>{simplePlaceName}</div>
               </div>
             </div>
           </div>
-          {_.isNil(map) || mapSection}
+          <div className={cx('content-section')}>
+            <div className={cx('content-info-title')}>
+              <SVGIcon name="map" />
+              <p>주소</p>
+            </div>
+            <div className={cx('info-content')}>
+              <KakaoMap kakaoMap={kakaoMap} />
+            </div>
+          </div>
         </article>
       </section>
     </div>
