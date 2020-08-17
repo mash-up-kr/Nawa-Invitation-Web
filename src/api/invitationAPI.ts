@@ -3,6 +3,7 @@ import axios from 'axios'
 
 /* Internal dependencies */
 import { ResponseType } from 'utils/reduxUtils'
+import { getRequestUrl } from 'utils/requestUtils'
 
 interface ResponseMapType {
   invitationAddressName: string
@@ -17,7 +18,9 @@ export interface getInvitationResponseType {
   invitationTime: string
   invitationPlaceName: string
   mapInfo: ResponseMapType | null
-  images: string[]
+  templateBackgroundImageUrl: string
 }
 
-export const getInvitation: ResponseType<getInvitationResponseType> = ({ templateId }) => axios.get(`/invitations/${templateId}`)
+export const getInvitation: ResponseType<getInvitationResponseType> = ({ templateId }) => {
+  return axios.get(`${getRequestUrl()}/invitations/${templateId}`)
+}

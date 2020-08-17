@@ -9,6 +9,10 @@ export function isDevelopment() {
   return process.env.NODE_ENV === 'development'
 }
 
+export function getEnvironment() {
+  return process.env.NODE_ENV
+}
+
 export function isWindows() {
   return (platform.os || '').toString().indexOf('Window') >= 0
 }

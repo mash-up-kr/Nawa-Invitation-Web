@@ -11,7 +11,7 @@ export interface InvitationAttr {
   time: Date
   placeName: string
   map: Map | null
-  images: string[]
+  mainImage: string
 }
 
 const InvitationRecord = Immutable.Record<InvitationAttr>({
@@ -20,7 +20,7 @@ const InvitationRecord = Immutable.Record<InvitationAttr>({
   time: new Date(),
   placeName: '',
   map: new Map(),
-  images: [],
+  mainImage: '',
 })
 
 class Invitation extends InvitationRecord {
@@ -32,6 +32,7 @@ class Invitation extends InvitationRecord {
       placeName: args.invitationPlaceName,
       time: new Date(args.invitationTime),
       map: _.isNil(args.mapInfo) ? args.mapInfo : new Map(args.mapInfo),
+      mainImage: args.templateBackgroundImageUrl,
     })
   }
 }

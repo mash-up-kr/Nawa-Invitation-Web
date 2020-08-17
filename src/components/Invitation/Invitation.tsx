@@ -10,7 +10,6 @@ import SVGIcon from 'elements/SVGIcon'
 import InvitationModel from 'models/Invitation'
 import MapModel from 'models/Map'
 import { getDate, getTime } from 'utils/dateUtils'
-import CharacterImg from 'assets/images/character.png'
 import styled from './Invitation.module.scss'
 
 interface InvitationProps {
@@ -41,7 +40,7 @@ function Invitation({ invitation }: InvitationProps) {
     <div className={cx('template-wrapper')}>
       <header>
         <div className={cx('character-wrapper')}>
-          <img src={CharacterImg} alt="" />
+          <img src={invitation.mainImage} alt="" />
         </div>
       </header>
       <section>

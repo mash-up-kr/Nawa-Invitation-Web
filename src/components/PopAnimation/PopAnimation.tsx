@@ -25,7 +25,7 @@ function PopAnimation({ duration }) {
   if (!show) return null
   return (
     <div className={cx('pop-animation')}>
-      <Lottie options={defaultOptions} height={600} width={500} />
+      <Lottie options={defaultOptions} />
     </div>
   )
 }
