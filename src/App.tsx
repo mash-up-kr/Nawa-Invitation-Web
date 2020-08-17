@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 /* Internal dependencies */
-import { HomePage, ErrorPage, InvitationPage } from 'pages'
+import { HomePage, ErrorPage, InvitationPage, PreviewPage } from 'pages'
 import ErrorHandler from 'components/ErrorHandler'
 import { GlobalStyle } from 'styles/global-styles'
 import 'app.scss'
@@ -18,6 +18,7 @@ function App() {
       <ErrorHandler>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/preview" component={PreviewPage} />
           <Route exact path="/:templateId" component={InvitationPage} />
           <Route component={ErrorPage} />
         </Switch>

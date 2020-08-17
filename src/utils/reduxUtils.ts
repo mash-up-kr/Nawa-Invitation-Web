@@ -58,7 +58,7 @@ export const createAsyncActionsAndSaga = <F, S, E>(fetching: F, success: S, erro
       const resolve = _.get(action, ['meta', 'resolve'])
 
       if (_.isFunction(resolve)) {
-        resolve()
+        resolve(data)
       }
 
       yield put(asyncActions.success(data))
@@ -66,7 +66,7 @@ export const createAsyncActionsAndSaga = <F, S, E>(fetching: F, success: S, erro
       const reject = _.get(action, ['meta', 'reject'])
 
       if (_.isFunction(reject)) {
-        reject()
+        reject(error)
       }
 
       yield put(asyncActions.error(error))
