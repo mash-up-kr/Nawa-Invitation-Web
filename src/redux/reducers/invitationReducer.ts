@@ -16,7 +16,7 @@ type State = {
 }
 
 export interface getInvitationPayload {
-  templateId: string
+  invitationId: string
 }
 
 const GET_INVITATION = 'invitation/GET_INVITATION' as const

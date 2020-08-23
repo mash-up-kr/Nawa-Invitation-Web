@@ -1,61 +1,51 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React from 'react'
 import classNames from 'classnames/bind'
-import _ from 'lodash'
 
 /* Internal dependencies */
 import TextUnderline from 'elements/TextUnderline'
 import Map from 'elements/Map'
 import SVGIcon from 'elements/SVGIcon'
-import WithNewline from 'hocs/WithNewline'
-import InvitationModel from 'models/Invitation'
 import MapModel from 'models/Map'
-import { getDate, getTime } from 'utils/dateUtils'
-import styled from './Invitation.module.scss'
+import { getTemplateInfo } from 'utils/templateUtils'
+import styled from './Preview.module.scss'
 
-interface InvitationProps {
-  invitation: InvitationModel
+interface PreviewProps {
+  templateId: string
 }
 
 const cx = classNames.bind(styled)
 
-function Invitation({ invitation }: InvitationProps) {
-  const { map } = invitation
-
-  const mapSection = useMemo(
-    () => (
-      <div className={cx('content-section')}>
-        <div className={cx('content-info-title')}>
-          <SVGIcon name="map" />
-          <p>주소</p>
-        </div>
-        <div className={cx('info-content')}>
-          <Map map={map as MapModel} placeName={invitation.placeName} />
-        </div>
-      </div>
-    ),
-    [invitation.placeName, map],
-  )
+function Preview({ templateId }: PreviewProps) {
+  const map = {
+    addressName: '서울특별시 서초구 서초4동',
+    roadAddress: '서초대로73길 38',
+    latitude: 37.500651,
+    longitude: 127.024547,
+  }
+  const { backgroundImageUrl, subTitle } = getTemplateInfo(templateId)
 
   return (
     <div className={cx('template-wrapper')}>
       <header>
         <div className={cx('character-wrapper')}>
-          <img src={invitation.mainImage} alt="" />
+          <img src={backgroundImageUrl} alt="" />
         </div>
       </header>
       <section>
         <article className={cx('template-description')}>
-          <TextUnderline className={cx('title')}>{invitation.title}</TextUnderline>
+          <TextUnderline className={cx('title')}>모각코하러 모이자!</TextUnderline>
           <p className={cx('description')}>
-            <WithNewline>{invitation.contents}</WithNewline>
+            나의모임에 초대된 감자 친구들!
+            <br />
+            우리는 엄청난 서비스를 만들 수 있을꺼야!
           </p>
         </article>
         <article className={cx('template-content')}>
           <div className={cx('content-section')}>
             <div className={cx('info-top-bar')}>
               <TextUnderline className={cx('info-top-title')}>모임 정보</TextUnderline>
-              <p>"마! 엉아다! 집합해라~&#x1F60E;?"</p>
+              <p>{subTitle}</p>
             </div>
             <div className={cx('infos')}>
               <div className={cx('info', 'date-wrapper')}>
@@ -65,7 +55,7 @@ function Invitation({ invitation }: InvitationProps) {
                   </div>
                   <p>모임 날짜</p>
                 </div>
-                <div className={cx('info-content')}>{getDate(invitation.time)}</div>
+                <div className={cx('info-content')}>11월 27일</div>
               </div>
               <div className={cx('info', 'time-wrapper')}>
                 <div className={cx('info-title')}>
@@ -74,7 +64,7 @@ function Invitation({ invitation }: InvitationProps) {
                   </div>
                   <p>모임 시간</p>
                 </div>
-                <div className={cx('info-content')}>{getTime(invitation.time)}</div>
+                <div className={cx('info-content')}>오후 12시</div>
               </div>
               <div className={cx('info', 'location-wrapper')}>
                 <div className={cx('info-title')}>
@@ -83,15 +73,23 @@ function Invitation({ invitation }: InvitationProps) {
                   </div>
                   <p>모임 장소</p>
                 </div>
-                <div className={cx('info-content')}>{invitation.placeName}</div>
+                <div className={cx('info-content')}>잠실 1동</div>
               </div>
             </div>
           </div>
-          {_.isNil(map) || mapSection}
+          <div className={cx('content-section')}>
+            <div className={cx('content-info-title')}>
+              <SVGIcon name="map" />
+              <p>주소</p>
+            </div>
+            <div className={cx('info-content')}>
+              <Map map={map as MapModel} placeName="잠실 1동" />
+            </div>
+          </div>
         </article>
       </section>
     </div>
   )
 }
 
-export default React.memo(Invitation)
+export default Preview

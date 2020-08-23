@@ -21,6 +21,6 @@ export interface getInvitationResponseType {
   templateBackgroundImageUrl: string
 }
 
-export const getInvitation: ResponseType<getInvitationResponseType> = ({ templateId }) => {
-  return axios.get(`${getRequestUrl()}/invitations/${templateId}`)
+export const getInvitation: ResponseType<getInvitationResponseType> = ({ invitationId }) => {
+  return axios.get(`${getRequestUrl()}/invitations/${invitationId}`)
 }

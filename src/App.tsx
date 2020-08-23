@@ -18,8 +18,8 @@ function App() {
       <ErrorHandler>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/preview" component={PreviewPage} />
-          <Route exact path="/:templateId" component={InvitationPage} />
+          <Route exact path="/preview/:templateId" component={PreviewPage} />
+          <Route exact path="/:invitationId" component={InvitationPage} />
           <Route component={ErrorPage} />
         </Switch>
       </ErrorHandler>
