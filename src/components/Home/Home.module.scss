@@ -40,7 +40,7 @@
                 width: 240px;
                 height: 80px;
                 padding: 0 40px;
-                margin: 128px 60px 0px 60px;
+                margin: 128px 60px 0 60px;
             }
             img[alt='img-main'] {
                 width: 344px;
@@ -81,7 +81,7 @@
                 }
 
                 .article-title-up {
-                    margin: 145px 20px 0px 20px;
+                    margin: 145px 20px 0 20px;
                     padding: 0 80px;
                     color: #777777;
                 }
@@ -89,11 +89,11 @@
                 img[alt='img-line'] {
                     width: 8px;
                     height: 120px;
-                    margin: 52px 176px 0px 176px;
+                    margin: 52px 176px 0 176px;
                 }
 
                 .article-title-down {
-                    margin: 50px 20px 0px 20px;
+                    margin: 50px 20px 0 20px;
                     padding: 0 100px;
                 }
 
@@ -114,21 +114,21 @@
                 .article-title-up {
                     font-size: 24px;
                     line-height: 40px;
-                    margin: 107px 60px 0px 60px;
+                    margin: 107px 60px 0 60px;
                     color: #353535;
                 }
 
                 .article-title-down {
                     font-size: 24px;
                     line-height: 40px;
-                    margin: 0px 60px 0px 60px;
+                    margin: 0 60px 0 60px;
                     color: #353535;
                 }
 
                 .article-description {
                     font-size: 14px;
                     line-height: 20px;
-                    margin: 30px 60px 0px 60px;
+                    margin: 30px 60px 0 60px;
                     padding: 0 35px;
                     word-break: keep-all;
 
@@ -137,37 +137,37 @@
                 img[alt='img-invite-icon'] {
                     width: 200px;
                     height: 197px;
-                    margin: 165px 80px 0px 80px;
+                    margin: 165px 80px 0 80px;
                 }
         
                 img[alt='img-charactor-choice'] {
                     width: 360px;
                     height: 280px;
-                    margin: 80px 0px 0px 0px;
+                    margin: 80px 0 0 0;
                 }
         
                 img[alt='img-make-invite'] {
                     width: 280px;
                     height: 320px;
-                    margin: 41px 40px 0px 40px;
+                    margin: 41px 40px 0 40px;
                 }
 
                 img[alt='img-online-invite'] {
                     width: 208px;
                     height: 320px;
-                    margin: 43px 76px 0px 76px;
+                    margin: 43px 76px 0 76px;
                 }
 
                 img[alt='img-chat'] {
                     width: 176px;
                     height: 320px;
-                    margin: 42px 92px 0px 92px;
+                    margin: 42px 92px 0 92px;
                 }
 
                 img[alt='img-reminder'] {
                     width: 320px;
                     height: 264px;
-                    margin: 98px 20px 0px 20px;
+                    margin: 98px 20px 0 20px;
                 }
             }
         }
@@ -185,27 +185,24 @@
         @include template;
         background-color: #1b1b1b;
         height: auto;
+        padding: 50px 30px 80px;;
 
-        .footer-wrapper {
-            @include template-wrapper;
+        .footer-title {
+            margin-bottom: 60px;
+            font-size: 22px;
+            color: #ffffff;
+        }
 
-            .footer-title {
-                width: 115px;
-                height: 67px;
-                margin: 63px 125px 0px 30px;
-                font-size: 18px;
-                line-height: 53px;
-                color: #ffffff;
-            }
+        .footer-container-wrapper {
+            display: flex;
+            flex-direction: column;
 
             .footer-container {
-                width: 328px;
                 height: auto;
-                margin: 60px 0px 40px 32px;
 
                 .footer-container-title, .footer-container-member {
                     width: 100%;
-                    font-size: 14px;
+                    font-size: 16px;
                     line-height: 30px;
                     color: #ffffff;
                 }
@@ -213,6 +210,14 @@
                 .footer-container-title {
                     margin-bottom: 20px;
                 }
+
+                .footer-container-member + .footer-container-member {
+                    margin-top: 5px;
+                }
+            }
+
+            .footer-container + .footer-container {
+                margin-top: 80px;
             }
         }
     }

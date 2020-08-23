@@ -89,29 +89,69 @@ function Home() {
         </article>
       </section>
       <footer className={cx('footer-tech')}>
-        <div className={cx('footer-wrapper')}>
-          <p className={cx('footer-title')}>MEMBER</p>
+        <p className={cx('footer-title')}>MEMBER</p>
+        <div className={cx('footer-container-wrapper')}>
           <div className={cx('footer-container')}>
             <p className={cx('footer-container-title')}>Android Developer</p>
-            <p className={cx('footer-container-member')}>이두한</p>
-            <p className={cx('footer-container-member')}>이진성</p>
-            <p className={cx('footer-container-member')}>신초희</p>
-            <p className={cx('footer-container-member')}>현선</p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/koba1mobile" target="_blank" rel="noopener noreferrer">
+                이두한
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/dlwls5201" target="_blank" rel="noopener noreferrer">
+                이진성
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/godjoy" target="_blank" rel="noopener noreferrer">
+                신초희
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/sunny0529" target="_blank" rel="noopener noreferrer">
+                유현선
+              </a>
+            </p>
           </div>
           <div className={cx('footer-container')}>
             <p className={cx('footer-container-title')}>Web Developer</p>
-            <p className={cx('footer-container-member')}>윤대용</p>
-            <p className={cx('footer-container-member')}>최진영</p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/danivelop" target="_blank" rel="noopener noreferrer">
+                윤대용
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/joi0104" target="_blank" rel="noopener noreferrer">
+                최진영
+              </a>
+            </p>
           </div>
           <div className={cx('footer-container')}>
             <p className={cx('footer-container-title')}>Backend Developer</p>
-            <p className={cx('footer-container-member')}>김재현</p>
-            <p className={cx('footer-container-member')}>권수연</p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/JaeHyeonKim19" target="_blank" rel="noopener noreferrer">
+                김재현
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://github.com/kwonsye" target="_blank" rel="noopener noreferrer">
+                권수연
+              </a>
+            </p>
           </div>
           <div className={cx('footer-container')}>
             <p className={cx('footer-container-title')}>UX/UI designer</p>
-            <p className={cx('footer-container-member')}>고은이</p>
-            <p className={cx('footer-container-member')}>전다영</p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://flygoeun.tistory.com" target="_blank" rel="noopener noreferrer">
+                고은이
+              </a>
+            </p>
+            <p className={cx('footer-container-member')}>
+              <a href="https://uxdlab.tistory.com" target="_blank" rel="noopener noreferrer">
+                전다영
+              </a>
+            </p>
           </div>
         </div>
       </footer>
