@@ -9,6 +9,7 @@
     "fontfaceobserver": "2.1.0",
     "husky": "4.2.3",
     "immutable": "4.0.0-rc.12",
+    "ismobilejs": "1.1.1",
     "lodash": "4.17.19",
     "lru-cache": "6.0.0",
     "moment": "2.27.0",
