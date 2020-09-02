@@ -7,6 +7,7 @@ import _ from 'lodash'
 import TextUnderline from 'elements/TextUnderline'
 import Map from 'elements/Map'
 import SVGIcon from 'elements/SVGIcon'
+import TextCarousel from 'elements/TextCarousel'
 import WithNewline from 'hocs/WithNewline'
 import InvitationModel from 'models/Invitation'
 import MapModel from 'models/Map'
@@ -91,7 +92,9 @@ function Invitation({ invitation }: InvitationProps) {
                   </div>
                   <p>모임 장소</p>
                 </div>
-                <div className={cx('info-content')}>{invitation.placeName}</div>
+                <div className={cx('info-content')}>
+                  <TextCarousel content={invitation.placeName} />
+                </div>
               </div>
             </div>
           </div>
