@@ -64,7 +64,7 @@ function Invitation({ invitation }: InvitationProps) {
           <div className={cx('content-section')}>
             <div className={cx('info-top-bar')}>
               <TextUnderline className={cx('info-top-title')}>모임 정보</TextUnderline>
-              <p>"마! 엉아다! 집합해라~&#x1F60E;?"</p>
+              <p>{invitation.description}</p>
             </div>
             <div className={cx('infos')}>
               <div className={cx('info', 'date-wrapper')}>

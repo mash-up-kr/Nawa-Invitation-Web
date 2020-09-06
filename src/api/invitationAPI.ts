@@ -19,6 +19,7 @@ export interface getInvitationResponseType {
   invitationPlaceName: string
   mapInfo: ResponseMapType | null
   templateBackgroundImageUrl: string
+  templateTypeDescription: string
 }
 
 export const getInvitation: ResponseType<getInvitationResponseType> = ({ invitationId }) => {
