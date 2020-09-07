@@ -14,11 +14,12 @@ export enum Size {
 }
 
 interface SVGIconProps {
+  className?: string
   name: string
   size?: Size
 }
 
-function SVGIcon({ name, size = Size.Normal }: SVGIconProps) {
+function SVGIcon({ className, name, size = Size.Normal }: SVGIconProps) {
   const src = useMemo(() => {
     const fileName = _.endsWith(name, '.svg') ? name : `${name}.svg`
     try {
@@ -29,7 +30,7 @@ function SVGIcon({ name, size = Size.Normal }: SVGIconProps) {
   }, [name])
 
   return (
-    <Styled.SVGIconWrapper size={size}>
+    <Styled.SVGIconWrapper className={className} size={size}>
       <Styled.SVGIcon src={src} />
     </Styled.SVGIconWrapper>
   )

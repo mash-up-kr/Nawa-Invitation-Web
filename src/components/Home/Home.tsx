@@ -1,6 +1,9 @@
+/* External dependencies */
 import React from 'react'
 import classNames from 'classnames/bind'
 
+/* Internal dependencies */
+import SVGIcon, { Size } from 'elements/SVGIcon'
 import style from 'components/Home/Home.module.scss'
 import ImgLogo from 'assets/img_logo.png'
 import ImgMain from 'assets/images/homeImg/img_main.png'
@@ -95,22 +98,34 @@ function Home() {
             <p className={cx('footer-container-title')}>Android Developer</p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/koba1mobile" target="_blank" rel="noopener noreferrer">
-                이두한
+                <div className={cx('footer-member-wrapper')}>
+                  <p>이두한</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/dlwls5201" target="_blank" rel="noopener noreferrer">
-                이진성
+                <div className={cx('footer-member-wrapper')}>
+                  <p>이진성</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/godjoy" target="_blank" rel="noopener noreferrer">
-                신초희
+                <div className={cx('footer-member-wrapper')}>
+                  <p>신초희</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/sunny0529" target="_blank" rel="noopener noreferrer">
-                유현선
+                <div className={cx('footer-member-wrapper')}>
+                  <p>유현선</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
           </div>
@@ -118,12 +133,18 @@ function Home() {
             <p className={cx('footer-container-title')}>Web Developer</p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/danivelop" target="_blank" rel="noopener noreferrer">
-                윤대용
+                <div className={cx('footer-member-wrapper')}>
+                  <p>윤대용</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/joi0104" target="_blank" rel="noopener noreferrer">
-                최진영
+                <div className={cx('footer-member-wrapper')}>
+                  <p>최진영</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
           </div>
@@ -131,12 +152,18 @@ function Home() {
             <p className={cx('footer-container-title')}>Backend Developer</p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/JaeHyeonKim19" target="_blank" rel="noopener noreferrer">
-                김재현
+                <div className={cx('footer-member-wrapper')}>
+                  <p>김재현</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://github.com/kwonsye" target="_blank" rel="noopener noreferrer">
-                권수연
+                <div className={cx('footer-member-wrapper')}>
+                  <p>권수연</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
           </div>
@@ -144,12 +171,18 @@ function Home() {
             <p className={cx('footer-container-title')}>UX/UI designer</p>
             <p className={cx('footer-container-member')}>
               <a href="https://flygoeun.tistory.com" target="_blank" rel="noopener noreferrer">
-                고은이
+                <div className={cx('footer-member-wrapper')}>
+                  <p>고은이</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
             <p className={cx('footer-container-member')}>
               <a href="https://uxdlab.tistory.com" target="_blank" rel="noopener noreferrer">
-                전다영
+                <div className={cx('footer-member-wrapper')}>
+                  <p>전다영</p>
+                  <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
+                </div>
               </a>
             </p>
           </div>

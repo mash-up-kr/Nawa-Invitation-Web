@@ -208,11 +208,20 @@
                 }
 
                 .footer-container-title {
-                    margin-bottom: 20px;
+                    margin-bottom: 24px;
+                }
+
+                .footer-member-wrapper {
+                    display: flex;
+                    align-items: center;
+
+                    .member-link-icon {
+                        margin-left: 8px;
+                    }
                 }
 
                 .footer-container-member + .footer-container-member {
-                    margin-top: 5px;
+                    margin-top: 12px;
                 }
             }
 
