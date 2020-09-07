@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
 /* Internal dependencies */
-import PopAnimation from 'components/PopAnimation'
 import InvitationContainer from 'containers/InvitationContainer'
 
 interface RouterProps {
@@ -21,7 +20,6 @@ function InvitationPage({ match }: RouteComponentProps<RouterProps>) {
         <meta name="description" content="Nawa invitation" />
       </Helmet>
       <div>
-        <PopAnimation duration={1.5} />
         <InvitationContainer invitationId={invitationId} />
       </div>
     </>

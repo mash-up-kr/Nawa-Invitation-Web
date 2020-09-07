@@ -5,16 +5,13 @@ import classNames from 'classnames/bind'
 
 /* Internal dependencies */
 import animationData from 'assets/invitation.json'
-import useDuration from 'hooks/useDuration'
-import styled from './PopAnimation.module.scss'
+import styled from './LoadingAnimation.module.scss'
 
 const cx = classNames.bind(styled)
 
-function PopAnimation({ duration }) {
-  const show = useDuration(duration)
-
+function LoadingAnimation() {
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
@@ -22,12 +19,11 @@ function PopAnimation({ duration }) {
     },
   }
 
-  if (!show) return null
   return (
-    <div className={cx('pop-animation')}>
+    <div className={cx('loading-animation')}>
       <Lottie options={defaultOptions} />
     </div>
   )
 }
 
-export default PopAnimation
+export default LoadingAnimation
