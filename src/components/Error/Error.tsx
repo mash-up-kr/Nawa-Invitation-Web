@@ -1,10 +1,10 @@
 /* External dependencies */
 import React, { useMemo, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import classNames from 'classnames/bind'
 
 /* Internal dependencies */
+import Helmet from 'components/Helmet'
 import TextUnderline from 'elements/TextUnderline'
 import ErrorCodes from 'types/ErrorCodes'
 import errorAvatar from 'assets/images/error_avatar.png'
@@ -38,10 +38,7 @@ function Error({ errorStatusCode = ErrorCodes.NOT_FOUND }: ErrorProps) {
 
   return (
     <>
-      <Helmet>
-        <title>{`${errorStatusCode} ${errorTitle}`}</title>
-        <meta name="description" content={errorContent} />
-      </Helmet>
+      <Helmet title={`${errorStatusCode} ${errorTitle}`} />
       <div className={cx('error-wrapper')}>
         <TextUnderline className={cx('title')}>잠시만요!</TextUnderline>
         <img className={cx('error-avatar')} src={errorAvatar} alt="" />
