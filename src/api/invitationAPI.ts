@@ -23,5 +23,5 @@ export interface getInvitationResponseType {
 }
 
 export const getInvitation: ResponseType<getInvitationResponseType> = ({ invitationId }) => {
-  return axios.get(`${getRequestUrl()}/invitations/${invitationId}`)
+  return axios.get(`${getRequestUrl()}/invitations/${invitationId}?ts=${Date.now()}`)
 }
