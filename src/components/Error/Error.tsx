@@ -19,17 +19,11 @@ const cx = classNames.bind(styles)
 function Error({ errorStatusCode = ErrorCodes.NOT_FOUND }: ErrorProps) {
   const history = useHistory()
 
-  const { errorTitle, errorContent } = useMemo(() => {
+  const errorTitle = useMemo(() => {
     if (errorStatusCode >= ErrorCodes.INTERNAL_SERVER_ERROR) {
-      return {
-        errorTitle: 'Internal Server Error',
-        errorContent: 'Internal server error',
-      }
+      return 'Internal Server Error'
     }
-    return {
-      errorTitle: 'Page Not Found',
-      errorContent: 'Not found',
-    }
+    return 'Page Not Found'
   }, [errorStatusCode])
 
   const onClickHistoryBackButton = useCallback(() => {
