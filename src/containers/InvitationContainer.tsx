@@ -14,7 +14,7 @@ interface InvitationContainerProps {
   invitationId: string
 }
 
-const LOADING_TIME = 3000
+const LOADING_TIME = 1500
 
 function InvitationContainer({ invitationId }: InvitationContainerProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true)
