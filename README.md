@@ -56,7 +56,7 @@ $ npm install
 
 module을 설치한 후, `npm start`를 통해 `development`서버를 실행할 수 있습니다.
 
-> 데모는 [http://danivelop.com](http://danivelop.com)에서 확인할 수 있으며
+> 데모는 [http://danivelop.com](http://danivelop.com)에서 확인할 수 있으며(현재 모바일 view만 지원합니다.)
 
 > 안드로이드 모바일 앱 다운로드는 [앱 다운로드](https://play.google.com/store/apps/details?id=com.mashup.patatoinvitation)에서 다운로드 가능합니다.
 
