@@ -1,11 +1,13 @@
 /* External dependencies */
-import React from 'react'
+import React, { useCallback } from 'react'
 import classNames from 'classnames/bind'
 
 /* Internal dependencies */
 import SVGIcon, { Size } from 'elements/SVGIcon'
 import Helmet from 'components/Helmet'
-import style from 'components/Home/Home.module.scss'
+import UserAgentService from 'services/UserAgentService'
+import { openBlank } from 'utils/browserUtils'
+import style from './Home.module.scss'
 import ImgLogo from 'assets/img_logo.png'
 import ImgMain from 'assets/images/homeImg/img_main.png'
 import ImgLine from 'assets/images/homeImg/img_line.png'
@@ -19,6 +21,14 @@ import ImgReminder from 'assets/images/homeImg/img_reminder.png'
 const cx = classNames.bind(style)
 
 function Home() {
+  const handleClickAppDownload = useCallback(() => {
+    if (UserAgentService.isAndroidDevice()) {
+      openBlank('https://play.google.com/store/apps/details?id=com.mashup.patatoinvitation')
+    } else {
+      alert('안드로이드 기기만 다운로드 가능합니다.')
+    }
+  }, [])
+
   return (
     <>
       <Helmet title="나와 초대장" />
@@ -28,7 +38,9 @@ function Home() {
             <img src={ImgLogo} alt="nawa-logo" />
             <p className={cx('header-title')}>나만의 특별한 초대장 파트너</p>
             <img src={ImgMain} alt="img-main" />
-            <button className={cx('app-download-button')}>앱 다운로드</button>
+            <button className={cx('app-download-button')} onClick={handleClickAppDownload}>
+              앱 다운로드
+            </button>
           </div>
         </header>
         <section>
@@ -103,95 +115,95 @@ function Home() {
           <div className={cx('footer-container-wrapper')}>
             <div className={cx('footer-container')}>
               <p className={cx('footer-container-title')}>Android Developer</p>
-              <p className={cx('footer-container-member')}>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/koba1mobile" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>이두한</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/dlwls5201" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>이진성</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/godjoy" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>신초희</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/sunny0529" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>유현선</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
+              </div>
             </div>
             <div className={cx('footer-container')}>
               <p className={cx('footer-container-title')}>Web Developer</p>
-              <p className={cx('footer-container-member')}>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/danivelop" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>윤대용</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/joi0104" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>최진영</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
+              </div>
             </div>
             <div className={cx('footer-container')}>
               <p className={cx('footer-container-title')}>Backend Developer</p>
-              <p className={cx('footer-container-member')}>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/JaeHyeonKim19" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>김재현</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://github.com/kwonsye" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>권수연</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
+              </div>
             </div>
             <div className={cx('footer-container')}>
               <p className={cx('footer-container-title')}>UX/UI designer</p>
-              <p className={cx('footer-container-member')}>
+              <div className={cx('footer-container-member')}>
                 <a href="https://flygoeun.tistory.com" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>고은이</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
-              <p className={cx('footer-container-member')}>
+              </div>
+              <div className={cx('footer-container-member')}>
                 <a href="https://uxdlab.tistory.com" target="_blank" rel="noopener noreferrer">
                   <div className={cx('footer-member-wrapper')}>
                     <p>전다영</p>
                     <SVGIcon className={cx('member-link-icon')} name="link" size={Size.Normal} />
                   </div>
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </footer>

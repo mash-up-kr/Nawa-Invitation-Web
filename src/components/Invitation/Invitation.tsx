@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import classNames from 'classnames/bind'
 import _ from 'lodash'
@@ -14,10 +14,9 @@ import WithNewline from 'hocs/WithNewline'
 import InvitationModel from 'models/Invitation'
 import MapModel from 'models/Map'
 import UserAgentService from 'services/UserAgentService'
+import { openBlank } from 'utils/browserUtils'
 import { getDate, getTime } from 'utils/dateUtils'
 import styled from './Invitation.module.scss'
-import appDownload from 'assets/images/app-download.png'
-import getMore from 'assets/images/get-more.png'
 
 interface InvitationProps {
   invitation: InvitationModel
@@ -28,6 +27,14 @@ const cx = classNames.bind(styled)
 function Invitation({ invitation }: InvitationProps) {
   const { map } = invitation
   const { latitude, longitude } = map as MapModel
+
+  const handleClickAppDownload = useCallback(() => {
+    if (UserAgentService.isAndroidDevice()) {
+      openBlank('https://play.google.com/store/apps/details?id=com.mashup.patatoinvitation')
+    } else {
+      alert('안드로이드 기기만 다운로드 가능합니다.')
+    }
+  }, [])
 
   const mapSection = useMemo(
     () => (
@@ -117,13 +124,13 @@ function Invitation({ invitation }: InvitationProps) {
           </p>
           <div className={cx('footer-buttons')}>
             <div className={cx('footer-button', 'app-download')}>
-              <a href="https://danivelop.com">
-                <img src={appDownload} alt="" />
-              </a>
+              <div onClick={handleClickAppDownload}>
+                <SVGIcon className={cx('footer-icon')} name="app-download" />
+              </div>
             </div>
-            <div className={cx('footer-button', 'app-download')}>
+            <div className={cx('footer-button', 'get-more')}>
               <Link to="/">
-                <img src={getMore} alt="" />
+                <SVGIcon className={cx('footer-icon')} name="get-more" />
               </Link>
             </div>
           </div>

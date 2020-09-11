@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { rootState } from 'redux/reducers'
+import { RootState } from 'redux/reducers'
 
-export const getInvitation = (state: rootState) => state.invitation.invitation
-export const getInvitationFetching = (state: rootState) => state.invitation.getInvitationFetching
+export const getInvitation = (state: RootState) => state.invitation.invitation
+
+export const getInvitationFetching = (state: RootState) => state.invitation.getInvitationFetching
+
+export const getInvitationSuccess = (state: RootState) => state.invitation.getInvitationSuccess

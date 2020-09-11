@@ -22,7 +22,6 @@ export const Wrapper = styled.div<WrapperProps>`
     css`
       justify-content: start;
       overflow: hidden;
-      border-color: #dfdfdf;
       border-radius: 3px;
     `}
 `

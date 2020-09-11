@@ -1,4 +1,4 @@
 /* Internal dependencies */
-import { rootState } from 'redux/reducers'
+import { RootState } from 'redux/reducers'
 
-export const getComments = (state: rootState) => state.comment.comments
+export const getComments = (state: RootState) => state.comment.comments
