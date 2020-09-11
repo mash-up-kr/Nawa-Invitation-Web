@@ -26,7 +26,6 @@ const cx = classNames.bind(styled)
 
 function Invitation({ invitation }: InvitationProps) {
   const { map } = invitation
-  const { latitude, longitude } = map as MapModel
 
   const handleClickAppDownload = useCallback(() => {
     if (UserAgentService.isAndroidDevice()) {
@@ -36,8 +35,12 @@ function Invitation({ invitation }: InvitationProps) {
     }
   }, [])
 
-  const mapSection = useMemo(
-    () => (
+  const mapSection = useMemo(() => {
+    if (_.isNil(map)) return null
+
+    const { latitude, longitude } = map as MapModel
+
+    return (
       <div className={cx('content-section')}>
         <div className={cx('content-info-title')}>
           <SVGIcon name="map" />
@@ -53,9 +56,8 @@ function Invitation({ invitation }: InvitationProps) {
           )}
         </div>
       </div>
-    ),
-    [latitude, longitude, map, invitation.placeName],
-  )
+    )
+  }, [map, invitation.placeName])
 
   return (
     <>
@@ -111,7 +113,7 @@ function Invitation({ invitation }: InvitationProps) {
                 </div>
               </div>
             </div>
-            {_.isNil(map) || mapSection}
+            {mapSection}
           </article>
         </section>
         <footer>

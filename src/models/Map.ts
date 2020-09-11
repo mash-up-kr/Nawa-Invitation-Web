@@ -20,8 +20,8 @@ class Map extends MapRecord {
     super({
       addressName: args.invitationAddressName,
       roadAddress: args.invitationRoadAddressName,
-      latitude: args.x,
-      longitude: args.y,
+      latitude: args.y,
+      longitude: args.x,
     })
   }
 }
