@@ -8,6 +8,7 @@ import Map from 'elements/Map'
 import SVGIcon from 'elements/SVGIcon'
 import MapModel from 'models/Map'
 import { getTemplateInfo } from 'utils/templateUtils'
+import { getDate, getTime } from 'utils/dateUtils'
 import styled from './Preview.module.scss'
 
 interface PreviewProps {
@@ -18,12 +19,13 @@ const cx = classNames.bind(styled)
 
 function Preview({ templateId }: PreviewProps) {
   const map = {
-    addressName: '서울특별시 서초구 서초4동',
-    roadAddress: '서초대로73길 38',
-    latitude: 37.500651,
-    longitude: 127.024547,
+    addressName: '서울특별시 광진구 자양동 73-2',
+    roadAddress: '서울 광진구 능동로 10',
+    latitude: 37.528834,
+    longitude: 127.069851,
   }
   const { backgroundImageUrl, subTitle } = getTemplateInfo(templateId)
+  const now = new Date()
 
   return (
     <div className={cx('template-wrapper')}>
@@ -34,11 +36,11 @@ function Preview({ templateId }: PreviewProps) {
       </header>
       <section>
         <article className={cx('template-description')}>
-          <TextUnderline className={cx('title')}>모각코하러 모이자!</TextUnderline>
+          <TextUnderline className={cx('title')}>Mash-Up 모이자!</TextUnderline>
           <p className={cx('description')}>
-            나의모임에 초대된 감자 친구들!
+            나의 모임에 초대된 mash-up친구들!
             <br />
-            우리는 엄청난 서비스를 만들 수 있을꺼야!
+            한강으로 놀러가자!
           </p>
         </article>
         <article className={cx('template-content')}>
@@ -55,7 +57,7 @@ function Preview({ templateId }: PreviewProps) {
                   </div>
                   <p>모임 날짜</p>
                 </div>
-                <div className={cx('info-content')}>11월 27일</div>
+                <div className={cx('info-content')}>{getDate(now)}</div>
               </div>
               <div className={cx('info', 'time-wrapper')}>
                 <div className={cx('info-title')}>
@@ -64,7 +66,7 @@ function Preview({ templateId }: PreviewProps) {
                   </div>
                   <p>모임 시간</p>
                 </div>
-                <div className={cx('info-content')}>오후 12시</div>
+                <div className={cx('info-content')}>{getTime(now)}</div>
               </div>
               <div className={cx('info', 'location-wrapper')}>
                 <div className={cx('info-title')}>
@@ -73,7 +75,7 @@ function Preview({ templateId }: PreviewProps) {
                   </div>
                   <p>모임 장소</p>
                 </div>
-                <div className={cx('info-content')}>잠실 1동</div>
+                <div className={cx('info-content')}>뚝섬유원지역</div>
               </div>
             </div>
           </div>
@@ -83,11 +85,51 @@ function Preview({ templateId }: PreviewProps) {
               <p>주소</p>
             </div>
             <div className={cx('info-content')}>
-              <Map map={map as MapModel} placeName="잠실 1동" />
+              <Map map={map as MapModel} placeName="뚝섬유원지역" />
             </div>
           </div>
         </article>
       </section>
+      <footer>
+        <p className={cx('footer-title')}>
+          편리하게 사용하셨다면,
+          <br />
+          구글앱스토어에서
+          <br />
+          '나와 초대장'을 직접 다운받아보세요!
+        </p>
+        <div className={cx('footer-buttons')}>
+          <div className={cx('footer-button', 'app-download')}>
+            <div>
+              <SVGIcon className={cx('footer-icon')} name="app-download" />
+            </div>
+          </div>
+          <div className={cx('footer-button', 'get-more')}>
+            <div>
+              <SVGIcon className={cx('footer-icon')} name="get-more" />
+            </div>
+          </div>
+        </div>
+        <div className={cx('introduction-member')}>
+          <p className={cx('introduction-main-title')}>만든 이</p>
+          <div className={cx('introduction-section')}>
+            <p className={cx('introduction-sub-title')}>안드로이드 개발</p>
+            <p className={cx('introduction-content')}>이두한,이진성,신초희,유현선</p>
+          </div>
+          <div className={cx('introduction-section')}>
+            <p className={cx('introduction-sub-title')}>웹 개발</p>
+            <p className={cx('introduction-content')}>윤대용,최진영</p>
+          </div>
+          <div className={cx('introduction-section')}>
+            <p className={cx('introduction-sub-title')}>백앤드 개발</p>
+            <p className={cx('introduction-content')}>김재현,권수연</p>
+          </div>
+          <div className={cx('introduction-section')}>
+            <p className={cx('introduction-sub-title')}>UX/UI 디자인</p>
+            <p className={cx('introduction-content')}>고은이,전다영</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

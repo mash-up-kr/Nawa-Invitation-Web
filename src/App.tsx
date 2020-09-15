@@ -13,9 +13,11 @@ import 'app.scss'
 
 function App() {
   useEffect(() => {
-    ChannelService.boot({
-      pluginKey: '2146f61e-2956-413b-bdda-c9e997fdaad8',
-    })
+    if (!window.location.pathname.startsWith('/preview')) {
+      ChannelService.boot({
+        pluginKey: '2146f61e-2956-413b-bdda-c9e997fdaad8',
+      })
+    }
   }, [])
 
   return (

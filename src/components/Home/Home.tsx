@@ -23,7 +23,7 @@ const cx = classNames.bind(style)
 function Home() {
   const handleClickAppDownload = useCallback(() => {
     if (UserAgentService.isAndroidDevice()) {
-      openBlank('https://play.google.com/store/apps/details?id=com.mashup.patatoinvitation')
+      openBlank('https://play.google.com/store/apps/details?id=com.mashup.nawainvitation')
     } else {
       alert('안드로이드 기기만 다운로드 가능합니다.')
     }
