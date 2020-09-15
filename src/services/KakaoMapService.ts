@@ -1,4 +1,5 @@
 interface KakaoMapServiceProps {
+  map: any
   mapContainer: any
   latitude: number
   longitude: number
@@ -11,6 +12,7 @@ declare global {
 }
 
 class KakaoMapService implements KakaoMapServiceProps {
+  map: any
   readonly mapContainer: any
   readonly latitude: number
   readonly longitude: number
@@ -33,14 +35,18 @@ class KakaoMapService implements KakaoMapServiceProps {
           center: new window.kakao.maps.LatLng(this.latitude, this.longitude),
           level: 7,
         }
-        const map = new window.kakao.maps.Map(this.mapContainer, options)
+        this.map = new window.kakao.maps.Map(this.mapContainer, options)
         const markerPosition = new window.kakao.maps.LatLng(this.latitude, this.longitude)
         const marker = new window.kakao.maps.Marker({
           position: markerPosition,
         })
-        marker.setMap(map)
+        marker.setMap(this.map)
       })
     }
+  }
+
+  getMap() {
+    return this.map
   }
 }
 

@@ -1,8 +1,16 @@
 /* External dependencies */
 import styled from 'styled-components'
 
+/* Internal dependencies */
+import SVGIcon from 'elements/SVGIcon'
+
+interface MapContainerProps {
+  isWideMap: boolean
+}
+
 export const MapWrapper = styled.div`
   width: 100%;
+  position: relative;
   overflow: hidden;
   border: 1px solid #dfdfdf;
   border-radius: 6px;
@@ -35,8 +43,24 @@ export const AddressTag = styled.span`
   border-radius: 2px;
 `
 
-export const MapContainer = styled.div`
+export const MapContainer = styled.div<MapContainerProps>`
   width: 100%;
-  height: 86px;
+  height: ${props => (props.isWideMap ? '250px' : '24vw')};
+  max-height: 250px;
   margin-top: 12px;
+  transition: height 0.3s ease-in-out;
+`
+
+export const MapSizeIconWrapper = styled.div`
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
+export const MapSizeIcon = styled(SVGIcon)`
+  width: 100%;
+  height: 100%;
 `

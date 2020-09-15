@@ -1,9 +1,10 @@
 /* External dependencies */
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useCallback, useRef, useEffect } from 'react'
 
 /* Internal dependencies */
 import MapModel from 'models/Map'
 import KakaoMapService from 'services/KakaoMapService'
+import { Size } from 'elements/SVGIcon'
 import * as Styled from './Map.styled'
 
 interface MapProps {
@@ -12,12 +13,27 @@ interface MapProps {
 }
 
 function Map({ map, placeName }: MapProps) {
+  const [isWideMap, setIsWideMap] = useState<boolean>(false)
   const mapContainer = useRef(null)
+  const mapService = useRef<KakaoMapService>()
+
+  const handleClickMapSize = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    setIsWideMap(prev => !prev)
+  }, [])
 
   useEffect(() => {
-    const mapService = new KakaoMapService(mapContainer.current, map.latitude, map.longitude)
-    mapService.loadMap()
+    mapService.current = new KakaoMapService(mapContainer.current, map.latitude, map.longitude)
+    mapService.current.loadMap()
   }, [map])
+
+  useEffect(() => {
+    if (mapService.current) {
+      setTimeout(() => {
+        mapService.current?.getMap()?.relayout()
+      }, 300)
+    }
+  }, [isWideMap])
 
   return (
     <Styled.MapWrapper>
@@ -29,7 +45,10 @@ function Map({ map, placeName }: MapProps) {
           {map.roadAddress}
         </Styled.RoadAddress>
       </Styled.AddressWrapper>
-      <Styled.MapContainer ref={mapContainer} />
+      <Styled.MapContainer ref={mapContainer} isWideMap={isWideMap} />
+      <Styled.MapSizeIconWrapper onClick={handleClickMapSize}>
+        <Styled.MapSizeIcon name={isWideMap ? 'squares-filled' : 'squares'} size={Size.Small} />
+      </Styled.MapSizeIconWrapper>
     </Styled.MapWrapper>
   )
 }
