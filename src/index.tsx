@@ -5,23 +5,33 @@ import 'react-app-polyfill/stable'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { HelmetProvider } from 'react-helmet-async'
+import { BrowserRouter } from 'react-router-dom'
+import { loadableReady } from '@loadable/component'
 
 /* Internal dependencies */
 import App from 'App'
-import ReduxStore from 'redux/reduxStore'
+import ReduxStore from 'modules/reduxStore'
 import * as serviceWorker from 'serviceWorker'
 import 'sanitize.css/sanitize.css'
 
-ReactDOM.render(
+const Root = () => (
   <Provider store={ReduxStore.getStore()}>
-    <HelmetProvider>
-      <React.StrictMode>
+    <React.StrictMode>
+      <BrowserRouter>
         <App />
-      </React.StrictMode>
-    </HelmetProvider>
-  </Provider>,
-  document.getElementById('root'),
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>
 )
+
+const root = document.getElementById('root')
+
+if (process.env.NODE_ENV === 'production') {
+  loadableReady(() => {
+    ReactDOM.hydrate(<Root />, root)
+  })
+} else {
+  ReactDOM.render(<Root />, root)
+}
 
 serviceWorker.unregister()

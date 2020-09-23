@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 /* Internal dependencies */
 import CommentList from 'components/CommentList'
-import * as commentAction from 'redux/reducers/commentReducer'
-import * as commentSelector from 'redux/selectors/commentSelector'
+import * as commentAction from 'modules/reducers/commentReducer'
+import * as commentSelector from 'modules/selectors/commentSelector'
 
 function CommentListContainer() {
   const dispatch = useDispatch()

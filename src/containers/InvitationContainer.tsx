@@ -7,14 +7,15 @@ import _ from 'lodash'
 /* Internal dependencies */
 import LoadingAnimation from 'components/LoadingAnimation'
 import Invitation from 'components/Invitation'
-import * as invitationAction from 'redux/reducers/invitationReducer'
-import * as invitationSelector from 'redux/selectors/invitationSelector'
+import * as invitationAction from 'modules/reducers/invitationReducer'
+import * as invitationSelector from 'modules/selectors/invitationSelector'
+import { usePreloader } from 'utils/preloadUtils'
 
 interface InvitationContainerProps {
   invitationId: string
 }
 
-const LOADING_TIME = 1000
+const LOADING_TIME = 1300
 
 function InvitationContainer({ invitationId }: InvitationContainerProps) {
   const dispatch = useDispatch()
@@ -24,7 +25,9 @@ function InvitationContainer({ invitationId }: InvitationContainerProps) {
   const isSuccess = useSelector(invitationSelector.getInvitationSuccess)
   const invitation = useSelector(invitationSelector.getInvitation)
 
-  const [isLoading, setIsLoading] = useState<boolean>(!isSuccess)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  usePreloader(() => dispatch(invitationAction.getInvitation({ invitationId })))
 
   const loadInvitation = useCallback(() => {
     setTimeout(() => {
@@ -42,8 +45,9 @@ function InvitationContainer({ invitationId }: InvitationContainerProps) {
   }, [dispatch, invitationId, history])
 
   useEffect(() => {
+    loadInvitation()
+
     if (!isSuccess) {
-      loadInvitation()
       fetchInvitation()
     }
   }, [isSuccess, loadInvitation, fetchInvitation])

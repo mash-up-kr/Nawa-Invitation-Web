@@ -44,3 +44,21 @@ export const getTemplateInfo = (templateId: string): GetTemplateInfoReturnType =
       }
   }
 }
+
+export const getInvitationOpenGraphImageUrl = (mainImage: string): string => {
+  switch (mainImage) {
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/money.png':
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/money.png'
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/myway.png':
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/myway.png'
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/please.png':
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/please.png'
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/threat.png':
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/threat.png'
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/charm.png':
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/charm.png'
+    case 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/template-character-with-background/elder.png':
+    default:
+      return 'https://nawa-invitation.s3.ap-northeast-2.amazonaws.com/og-images/elder.png'
+  }
+}

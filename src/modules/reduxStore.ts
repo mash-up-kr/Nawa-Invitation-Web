@@ -3,8 +3,14 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 /* Internal dependencies */
-import rootReducer, { rootSaga } from 'redux/reducers'
+import rootReducer, { rootSaga } from 'modules/reducers'
 import { isDevelopment } from 'utils/environmentUtils'
+
+declare global {
+  interface Window {
+    __PRELOADED_STATE__: any
+  }
+}
 
 class ReduxStore {
   readonly store
@@ -16,7 +22,7 @@ class ReduxStore {
     const composeEnhancers = devtools || compose
 
     const sagaMiddleware = createSagaMiddleware()
-    this.store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
+    this.store = createStore(rootReducer, window.__PRELOADED_STATE__, composeEnhancers(applyMiddleware(sagaMiddleware)))
     sagaMiddleware.run(rootSaga)
   }
 
