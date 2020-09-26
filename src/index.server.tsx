@@ -42,10 +42,10 @@ function createPage(root, tags) {
         <link rel="manifest" href="/manifest.json" />
         <title>나와 초대장</title>
         <meta name="description" content="나만의 특별한 초대장 파트너" />
-        <meta property="og:title" content="${tags.title}" />
+        <meta property="og:title" content="✉초대장이 도착했어요!" />
         <meta property="og:site_name" content="나와 초대장" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="${tags.date} ▪ ${tags.time} ▪ ${tags.placeName}" />
+        <meta property="og:description" content="🗓${tags.date} ⏰${tags.time} 📍${tags.placeName}" />
         <meta property="og:image" content="${tags.ogImage}" />
         ${tags.styles}
         ${tags.links}
