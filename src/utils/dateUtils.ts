@@ -1,24 +1,20 @@
 /* External dependencies */
 import moment from 'moment'
 import 'moment/locale/ko'
+import 'moment-timezone'
+
+moment.tz.setDefault('Asia/Seoul')
 
 export const getDate = (date: Date): string => {
-  if (typeof date === 'string') {
-    date = new Date(date)
-  }
-
-  return `${date.getMonth() + 1}월 ${date.getDate()}일`
+  return moment(date).format('M월 D일')
 }
 
 export const getTime = (date: Date): any => {
-  if (typeof date === 'string') {
-    date = new Date(date)
+  const newDate = moment(date)
+
+  if (newDate.minute() === 0) {
+    return newDate.format('A h시')
   }
 
-  const minute = date.getMinutes()
-
-  if (minute === 0) {
-    return moment(date).format('A h시')
-  }
-  return moment(date).format('A h시 mm분')
+  return newDate.format('A h시 mm분')
 }
