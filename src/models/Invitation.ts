@@ -27,12 +27,15 @@ const InvitationRecord = Immutable.Record<InvitationAttr>({
 
 class Invitation extends InvitationRecord {
   constructor(args: any = {}) {
+    const time = new Date(args.invitationTime)
+    time.setHours(time.getHours() - 9)
+
     super({
       ...args,
       title: args.invitationTitle,
       contents: args.invitationContents,
       placeName: args.invitationPlaceName,
-      time: new Date(args.invitationTime),
+      time,
       map: _.isNil(args.mapInfo) ? args.mapInfo : new Map(args.mapInfo),
       mainImage: args.templateBackgroundImageUrl,
       description: args.templateTypeDescription,
