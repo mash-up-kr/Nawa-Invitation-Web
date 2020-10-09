@@ -60,6 +60,10 @@
         .content-section {
           padding: 12px 16px;
 
+          &.map-section {
+            border-top: 1px solid #dfdfdf;
+          }
+
           .info-top-bar {
             margin-bottom: 12px;
             text-align: center;
@@ -110,6 +114,20 @@
           .info-content {
             margin-top: 4px;
             font-size: 14px;
+
+            .image {
+              width: 100%;
+              overflow: hidden;
+              border-radius: 6px;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            .image + .image {
+              margin-top: 10px;
+            }
           }
           .content-info-title {
             display: flex;
@@ -122,10 +140,6 @@
               color: #00c853;
             }
           }
-        }
-
-        .content-section + .content-section {
-          border-top: 1px solid #dfdfdf;
         }
       }
     }

@@ -12,11 +12,17 @@ interface ResponseMapType {
   y: number
 }
 
+interface ResponseImageType {
+  id: number
+  imageUrl: string
+}
+
 export interface getInvitationResponseType {
   invitationTitle: string
   invitationContents: string
   invitationTime: string
   invitationPlaceName: string
+  invitationImages: ResponseImageType[]
   mapInfo: ResponseMapType | null
   templateBackgroundImageUrl: string
   templateTypeDescription: string
