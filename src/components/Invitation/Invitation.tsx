@@ -59,7 +59,7 @@ function Invitation({ invitation }: InvitationProps) {
   }, [map, invitation.placeName])
 
   const imageSection = useMemo(() => {
-    if (invitation.images.isEmpty()) {
+    if (_.isEmpty(invitation.images)) {
       return null
     }
 
