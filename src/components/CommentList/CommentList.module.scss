@@ -87,7 +87,7 @@
         font-weight: bold;
         display: flex;
         align-items: center;
-        background-color: 0;
+        box-shadow: none;
       }
 
       input[name="content"]{
@@ -99,7 +99,7 @@
         line-height: 8px;
         display: flex;
         align-items: center;
-        background-color: 0;
+        box-shadow: none;
       }
     }
 
