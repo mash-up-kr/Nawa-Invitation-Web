@@ -19,11 +19,12 @@ import styled from './Invitation.module.scss'
 
 interface InvitationProps {
   invitation: InvitationModel
+  invitationId: string
 }
 
 const cx = classNames.bind(styled)
 
-function Invitation({ invitation }: InvitationProps) {
+function Invitation({ invitation, invitationId }: InvitationProps) {
   const { map } = invitation
 
   const handleClickAppDownload = useCallback(() => {
@@ -176,6 +177,9 @@ function Invitation({ invitation }: InvitationProps) {
           </div>
         </div>
       </footer>
+      <Link to={`/comments/${invitationId}`} className={cx('go-comment-button')}>
+        댓글 달기
+      </Link>
     </div>
   )
 }

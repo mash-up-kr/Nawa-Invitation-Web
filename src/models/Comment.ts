@@ -3,29 +3,38 @@ import Immutable from 'immutable'
 
 export interface CommentAttr {
   id: number
-  nickname: string
-  password: string
+  userName: string
+  createdAt: string
   content: string
 }
 
 const CommentRecord = Immutable.Record<CommentAttr>({
   id: 0,
-  nickname: '',
-  password: '',
+  userName: '',
+  createdAt: '',
   content: '',
 })
 
 class Comment extends CommentRecord {
+  constructor(args: any = {}) {
+    super({
+      id: args.id,
+      userName: args.userName,
+      createdAt: args.createdAt,
+      content: args.content,
+    })
+  }
+
   getId(): number {
     return this.id
   }
 
-  getNickname(): string {
-    return this.nickname
+  getUserName(): string {
+    return this.userName
   }
 
-  getPassword(): string {
-    return this.password
+  getCreatedAt(): string {
+    return this.createdAt
   }
 
   getContent(): string {

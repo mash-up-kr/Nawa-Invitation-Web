@@ -5,6 +5,10 @@ import 'moment-timezone'
 
 moment.tz.setDefault('Asia/Seoul')
 
+export const getYear = (date: Date): string => {
+  return moment(date).format('Y년')
+}
+
 export const getDate = (date: Date): string => {
   return moment(date).format('M월 D일')
 }

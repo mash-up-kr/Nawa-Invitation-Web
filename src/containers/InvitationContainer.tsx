@@ -52,7 +52,7 @@ function InvitationContainer({ invitationId }: InvitationContainerProps) {
     }
   }, [isSuccess, loadInvitation, fetchInvitation])
 
-  return isLoading || isFetching ? <LoadingAnimation /> : <Invitation invitation={invitation} />
+  return isLoading || isFetching ? <LoadingAnimation /> : <Invitation invitation={invitation} invitationId={invitationId} />
 }
 
 export default InvitationContainer

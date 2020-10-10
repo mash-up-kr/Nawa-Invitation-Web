@@ -1,3 +1,126 @@
-.CommentList {
+.comment-list-wrapper {
+  min-height: 100vh;
+  background-color: #F1F0EC;
+  margin-bottom: 190px;
+
+  header {
+    width: 100%;
     
+    background-color: white;
+
+    .character-wrapper {
+      width: 100%;
+      height: 128px;
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+  section {
+    width: 100%;
+    padding: 9px 16px;
+    box-sizing: border-box;
+    
+    article {
+      width: 100%;
+      background-color: white;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      padding: 10px 0;
+
+      &.comment-list-description {
+        padding: 11px 24px 13px;
+        text-align: center;
+        box-sizing: border-box;
+
+        .title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .description {
+          margin-top: 8px;
+          font-size: 14px;
+          word-break: keep-all;
+        }
+      }
+      &.comment-list-content {
+        width: 100%;
+        min-height: 30%;
+        margin-top: 8px;
+        ul {
+          li + li {
+            border-top: 1px solid #F1F0EC;
+          }
+        }
+      }
+    }
+  }
+
+  .new-comment {
+    width: 100%;
+    height: 190px;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+
+    form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      justify-content: space-between;
+      align-items: center;
+
+      input[name="userName"] {
+        width: 100%;
+        height: 31px;
+        border: 0;
+        font-size: 14px;
+        color: #a9a9a9;
+        line-height: 6px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+
+      input[name="content"]{
+        width: 100%;
+        height: 51px;
+        border: 1px solid #f1f0ec;
+        border-radius: 5px;
+        color: #a9a9a9;
+        line-height: 8px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      height: 48px;
+      background-color: #fef051;
+      border: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 14px;
+    }
+  }
+
+  .go-invitation-button {
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    background-image: url('../../assets/icons/close.svg');
+  }
 }

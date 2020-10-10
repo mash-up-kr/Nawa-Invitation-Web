@@ -1,31 +1,28 @@
 /* External dependencies */
-//import _ from 'lodash'
+import axios from 'axios'
 
 /* Internal dependencies */
-import { CommentAttr } from 'models/Comment'
 import { ResponseType } from 'utils/reduxUtils'
+import { getRequestUrl } from 'utils/requestUtils'
 
-const comments: CommentAttr[] = [
-  {
-    id: 0,
-    nickname: '대드래곤',
-    password: '1234',
-    content: '꼭 참석할께여',
-  },
-  {
-    id: 1,
-    nickname: '은이맘',
-    password: '1234',
-    content: '조아요~',
-  },
-]
+interface CommentType {
+  id: number
+  userName: string
+  createdAt: string
+  content: string
+}
 
-//let nextId = 2
+export interface GetCommentResponseType {
+  comments: CommentType[]
+}
 
-export const getComments: ResponseType<CommentAttr[]> = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      return resolve(comments)
-    }, 300)
+export const getComments: ResponseType<GetCommentResponseType> = ({ invitationId }) => {
+  return axios.get(`${getRequestUrl()}/apis/v2/invitations/${invitationId}/comments`)
+}
+
+export const createComment = ({ invitationId, userName, content }) => {
+  return axios.post(`${getRequestUrl()}/apis/v2/invitations/${invitationId}/comments`, {
+    userName,
+    content,
   })
 }

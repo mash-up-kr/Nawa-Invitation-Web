@@ -3,7 +3,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 /* Internal dependencies */
-import { HomePage, ErrorPage, InvitationPage, PreviewPage } from 'pages'
+import { HomePage, ErrorPage, InvitationPage, PreviewPage, CommentPage } from 'pages'
 import ErrorHandler from 'components/ErrorHandler'
 import ScrollToTop from 'components/ScrollToTop'
 import { GlobalStyle } from 'styles/global-styles'
@@ -18,6 +18,7 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/preview/:templateId" component={PreviewPage} />
             <Route exact path="/:invitationId" component={InvitationPage} />
+            <Route exact path="/comments/:invitationId" component={CommentPage} />
             <Route component={ErrorPage} />
           </Switch>
         </ScrollToTop>
