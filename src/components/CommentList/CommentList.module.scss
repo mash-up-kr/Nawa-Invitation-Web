@@ -87,6 +87,7 @@
         font-weight: bold;
         display: flex;
         align-items: center;
+        background-color: 0;
       }
 
       input[name="content"]{
@@ -98,6 +99,7 @@
         line-height: 8px;
         display: flex;
         align-items: center;
+        background-color: 0;
       }
     }
 
@@ -118,7 +120,7 @@
   .go-invitation-button {
     width: 24px;
     height: 24px;
-    position: fixed;
+    position: absolute;
     top: 8px;
     right: 8px;
     background-image: url('../../assets/icons/close.svg');

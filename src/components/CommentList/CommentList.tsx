@@ -66,7 +66,7 @@ function CommentList({ invitationId, comments, mainImage, contents, createCommen
         </article>
         <article className={cx('comment-list-content')}>
           <ul>
-            {comments.toList().map(comment => (
+            {comments.map(comment => (
               <Comment key={comment.id} comment={comment} />
             ))}
           </ul>
