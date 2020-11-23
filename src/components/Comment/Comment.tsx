@@ -25,7 +25,7 @@ function Comment({ comment }: CommentProps) {
         <p className={cx('user-name')}>{comment.get('userName')}</p>
         <p className={cx('created-at')}>{getCreateAt()}</p>
       </div>
-      <div className={cx('comment-content')}>{comment.get('content')}</div>
+      <p className={cx('comment-content')}>{comment.get('content')}</p>
     </li>
   )
 }

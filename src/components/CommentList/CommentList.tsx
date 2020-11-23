@@ -10,6 +10,7 @@ import CommentModel from 'models/Comment'
 import styles from './CommentList.module.scss'
 import TextUnderline from 'elements/TextUnderline'
 import WithNewline from 'hocs/WithNewline'
+import NoComment from 'assets/images/no_comment.png'
 
 interface commentListProps {
   invitationId: string
@@ -65,11 +66,18 @@ function CommentList({ invitationId, comments, mainImage, contents, createCommen
           </p>
         </article>
         <article className={cx('comment-list-content')}>
-          <ul>
-            {comments.map(comment => (
-              <Comment key={comment.id} comment={comment} />
-            ))}
-          </ul>
+          {comments.size ? (
+            <ul>
+              {comments.map(comment => (
+                <Comment key={comment.id} comment={comment} />
+              ))}
+            </ul>
+          ) : (
+            <div className={cx('no-comment-wrapper')}>
+              <img src={NoComment} alt="no_comment" className={cx('no-comment-img')} />
+              <p className={cx('no-comment-content')}>초대장에 첫 댓글을 남겨주세요.</p>
+            </div>
+          )}
         </article>
       </section>
       <div className={cx('new-comment')} onSubmit={onSubmit}>

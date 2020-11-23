@@ -1,7 +1,7 @@
 .comment-list-wrapper {
   min-height: 100vh;
   background-color: #F1F0EC;
-  margin-bottom: 190px;
+  padding-bottom: 190px;
 
   header {
     width: 100%;
@@ -50,11 +50,35 @@
       }
       &.comment-list-content {
         width: 100%;
-        min-height: 30%;
+        height: auto;
         margin-top: 8px;
         ul {
           li + li {
             border-top: 1px solid #F1F0EC;
+          }
+        }
+
+        .no-comment-wrapper {
+          width: 100%;
+          height: 180px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+  
+          .no-comment-img {
+            width: 48px;
+            height: 48px;
+          }
+  
+          .no-comment-content {
+            width: 100%;
+            height: 48px;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a9a9a9;
           }
         }
       }

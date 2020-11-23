@@ -2,7 +2,6 @@
   min-height: 100vh;
   background-color: #F1F0EC;
   animation: fadein 2.5s;
-  margin-bottom: 60px;
   @keyframes fadein {
     from {
       opacity: 0;
@@ -153,7 +152,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 24px 28px 40px;
+    padding: 24px 28px 100px;
     
     .footer-title {
       margin-bottom: 24px;
