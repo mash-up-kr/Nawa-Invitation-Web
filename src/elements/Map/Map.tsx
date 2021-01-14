@@ -22,10 +22,6 @@ function Map({ map, placeName }: MapProps) {
     setIsWideMap(prev => !prev)
   }, [])
 
-  const handleScrollMap = useCallback(e => {
-    e.stopPropagation()
-  }, [])
-
   useEffect(() => {
     mapService.current = new KakaoMapService(mapContainer.current, map.latitude, map.longitude)
     mapService.current.loadMap()
@@ -49,7 +45,7 @@ function Map({ map, placeName }: MapProps) {
           {map.roadAddress}
         </Styled.RoadAddress>
       </Styled.AddressWrapper>
-      <Styled.MapContainer ref={mapContainer} isWideMap={isWideMap} onWheel={handleScrollMap} />
+      <Styled.MapContainer ref={mapContainer} isWideMap={isWideMap} />
       <Styled.MapSizeIconWrapper onClick={handleClickMapSize}>
         <Styled.MapSizeIcon name={isWideMap ? 'squares-filled' : 'squares'} size={Size.Small} />
       </Styled.MapSizeIconWrapper>
